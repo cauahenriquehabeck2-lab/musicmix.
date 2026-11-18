@@ -168,7 +168,7 @@ function full(){const f=$('#full'),t=cur();f.className=full.on&&t?'on':'';if(!fu
   E('h2',{textContent:t.title,style:'margin:8px 0 0'}),E('div',{className:'mu',textContent:t.artist}),rg,E('div',{className:'mu',id:'tm',textContent:fm(aud.currentTime)+' / '+fm(aud.duration)}),
   E('div',{className:'ctl'},ctl('🔀',()=>sheet('Ordem de reprodução',Object.entries(OR).map(([k,l])=>[l,()=>{setOrder(k);full()}]))),ctl('⏮',prev),ctl(aud.paused?'▶':'❚❚',toggle,'play'),ctl('⏭',()=>next()),ctl(S.rep==='one'?'🔂':S.rep==='all'?'🔁':'➡️',()=>{S.rep=S.rep==='off'?'all':S.rep==='all'?'one':'off';save();full()})),
   E('div',{className:'mu',textContent:'Ordem: '+OR[S.order]+' · Repetir: '+({off:'não',all:'tudo',one:'uma'})[S.rep]}),
-  E('div',{className:'bar',style:'margin-top:12px'},E('button',{textContent:sleep?'⏱ Timer ligado':'⏱ Timer para dormir',onclick:()=>sheet('Parar a música em…',[['Desligar',()=>{clearTimeout(sleep);sleep=null;full()}],...[15,30,45,60].map(m=>[m+' min',()=>{clearTimeout(sleep);sleep=setTimeout(()=>{aud.pause();sleep=null},m*60000);full()}])]))),E('h3',{textContent:'Fila'}),q)}
+  E('div',{className:'bar',style:'margin-top:12px'},E('button',{textContent:sleep?'⏱ Timer ligado':'⏱ Timer para dormir',onclick:()=>sheet('Parar a música em…',[['Desligar',()=>{clearTimeout(sleep);sleep=null;full()}],...[15,30,45,60].map(m=>[m+' min',()=>{clearTimeout(sleep);sleep=setTimeout(()=>{aud.pause();sleep=null},m*60000);full()}])])})),E('h3',{textContent:'Fila'}),q)}
 function qmv(i,d){const j=i+d;if(j<0||j>=Q.length)return;const id=cur().id;[Q[i],Q[j]]=[Q[j],Q[i]];qi=Q.findIndex(t=>t.id===id);full()}
 // ---------- tela ----------
 function render(){theme();const T0={lib:['🎵','Músicas'],pl:['📋','Playlists'],set:['⚙','Ajustes']};
